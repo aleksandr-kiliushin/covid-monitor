@@ -8,24 +8,19 @@ import { FC } from 'react'
 import useColorMode from '#providers/ColorModeProvider/useColorMode'
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  position: 'absolute',
-  right: '0',
-  top: '0',
-  height: '60px',
-  width: '60px',
   color: theme.palette.mode === 'dark' ? '#bbb' : '#333',
-  '& .MuiSvgIcon-root': {
-    height: '80%',
-    width: '80%',
-  },
 }))
 
-const ColorModeSwitch: FC = () => {
+type Props = {
+  className?: string
+}
+
+const ColorModeSwitch: FC<Props> = ({ className }) => {
   const theme = useTheme()
   const { toggleColorMode } = useColorMode()
 
   return (
-    <StyledIconButton color="inherit" onClick={toggleColorMode}>
+    <StyledIconButton css={className} onClick={toggleColorMode}>
       {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
     </StyledIconButton>
   )

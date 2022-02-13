@@ -2,22 +2,20 @@ import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
 import { FC, useEffect, useState } from 'react'
 
-import Autocomplete from '#components/Autocomplete'
-import ColorModeSwitch from '#components/ColorModeSwitch'
 import Content from '#components/Content'
 import Main from '#components/Main'
 import TabPanel, { TabId } from '#components/TabPanel'
 import { loadLocations } from '#store/covid/action-creators'
-import { locationsSelector } from '#store/covid/selectors'
 import { Location } from '#types'
-import { useAppDispatch, useAppSelector } from '#utils/hooks'
+import { useAppDispatch } from '#utils/hooks'
 
+import Header from './Header'
 import RankedCharts from './RankedCharts'
 import ReportedCases from './ReportedCases'
+import { StyledColorModeSwitch } from './components'
 
 const App: FC = () => {
   const dispatch = useAppDispatch()
-  const locations = useAppSelector(locationsSelector)
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null)
   const [selectedTabId, setSelectedTabId] = useState<TabId>(TabId.REPORTED_CASES)
 
@@ -28,11 +26,7 @@ const App: FC = () => {
   return (
     <Main>
       <Content>
-        <Autocomplete
-          label="Location"
-          onChange={(event, value): void => setSelectedLocation(value)}
-          options={locations}
-        />
+        <Header setSelectedLocation={setSelectedLocation} />
         <Tabs value={selectedTabId} onChange={(event, value): void => setSelectedTabId(value)}>
           <Tab label="Reported cases" />
           <Tab label="Ranked charts" />
@@ -45,7 +39,7 @@ const App: FC = () => {
         </TabPanel>
       </Content>
 
-      <ColorModeSwitch />
+      <StyledColorModeSwitch />
     </Main>
   )
 }

@@ -3,6 +3,7 @@ import styled from '@mui/material/styles/styled'
 const Content = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
+  rowGap: '12px',
   height: '100%',
   padding: '16px',
   borderStyle: 'solid',
