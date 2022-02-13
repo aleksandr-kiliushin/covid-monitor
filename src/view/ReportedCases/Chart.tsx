@@ -1,10 +1,11 @@
 import { FC } from 'react'
 import { UseFormReturn } from 'react-hook-form'
-import { AreaChart } from 'reaviz'
+import { AreaChart, LinearYAxis, LinearYAxisTickLabel, LinearYAxisTickSeries } from 'reaviz'
 
 import { locationDataSelector } from '#store/covid/selectors'
 import { Location } from '#types'
 import { useAppSelector } from '#utils/hooks'
+import shortenNumber from '#utils/shortenNumber'
 
 import { FormFields } from './form-helpers'
 
@@ -24,7 +25,20 @@ const Chart: FC<Props> = ({ location, watch }) => {
 
   if (chartData === null) return <p>Data not found.</p>
 
-  return <AreaChart data={chartData} height={400} />
+  return (
+    <AreaChart
+      data={chartData}
+      height={400}
+      margins={[0, 0, 0, 20]}
+      yAxis={
+        <LinearYAxis
+          tickSeries={
+            <LinearYAxisTickSeries label={<LinearYAxisTickLabel format={shortenNumber} />} />
+          }
+        />
+      }
+    />
+  )
 }
 
 export default Chart

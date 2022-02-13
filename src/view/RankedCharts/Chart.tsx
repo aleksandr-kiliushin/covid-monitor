@@ -1,10 +1,17 @@
 import { FC } from 'react'
 import { UseFormReturn } from 'react-hook-form'
-import { BarChart, BarSeries } from 'reaviz'
+import {
+  BarChart,
+  BarSeries,
+  LinearYAxis,
+  LinearYAxisTickLabel,
+  LinearYAxisTickSeries,
+} from 'reaviz'
 
 import { rankedDataSelector } from '#store/covid/selectors'
 import { Location } from '#types'
 import { useAppSelector } from '#utils/hooks'
+import shortenNumber from '#utils/shortenNumber'
 
 import { FormFields } from './form-helpers'
 
@@ -27,8 +34,16 @@ const Chart: FC<Props> = ({ location, watch }) => {
     <BarChart
       data={chartData}
       height={400}
+      margins={[0, 0, 0, 20]}
       series={
         <BarSeries colorScheme={({ id }): string => (id === location?.value ? 'red' : 'blue')} />
+      }
+      yAxis={
+        <LinearYAxis
+          tickSeries={
+            <LinearYAxisTickSeries label={<LinearYAxisTickLabel format={shortenNumber} />} />
+          }
+        />
       }
     />
   )
