@@ -1,11 +1,14 @@
+import isPropValid from '@emotion/is-prop-valid'
 import styled from '@mui/material/styles/styled'
 import { FC } from 'react'
 
-const Wrapper = styled('div')<{ isActive: boolean }>(({ isActive }) => ({
-  flexGrow: '1',
-  display: isActive ? 'flex' : 'none',
-  flexDirection: 'column',
-}))
+const Wrapper = styled('div', { shouldForwardProp: isPropValid })<{ isActive: boolean }>(
+  ({ isActive }) => ({
+    flexGrow: '1',
+    display: isActive ? 'flex' : 'none',
+    flexDirection: 'column',
+  }),
+)
 
 export enum TabId {
   REPORTED_CASES,
