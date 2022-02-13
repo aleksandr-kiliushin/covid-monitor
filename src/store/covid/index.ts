@@ -22,6 +22,8 @@ const initialState: State = {
 }
 
 const slice = createSlice({
+  name: 'covid',
+  initialState,
   extraReducers: (builder) => {
     builder.addCase(
       loadLocations.fulfilled,
@@ -33,9 +35,12 @@ const slice = createSlice({
       },
     )
   },
-  initialState,
-  name: 'covid',
-  reducers: {},
+  reducers: {
+    setLoadingStatus: (state, action: PayloadAction<LoadingStatus>) => {
+      state.locations.loadingStatus = action.payload
+    },
+  },
 })
 
+export const { setLoadingStatus } = slice.actions
 export default slice.reducer
