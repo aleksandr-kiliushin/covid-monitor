@@ -2,10 +2,9 @@ import styled from '@mui/material/styles/styled'
 
 const Form = styled('form')(({ theme }) => ({
   display: 'grid',
-  gridTemplateColumns: 'auto auto',
+  gridTemplateColumns: '1fr 1fr',
   gap: '1rem',
-  border: '1px solid black',
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('sm')]: {
     gridTemplateColumns: 'auto',
   },
 }))

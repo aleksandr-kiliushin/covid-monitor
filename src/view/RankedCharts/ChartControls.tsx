@@ -1,5 +1,4 @@
 import FormControl from '@mui/material/FormControl'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import FormLabel from '@mui/material/FormLabel'
 import MenuItem from '@mui/material/MenuItem'
 import Radio from '@mui/material/Radio'
@@ -9,6 +8,7 @@ import { FC, ReactElement } from 'react'
 import { Controller, UseFormReturn } from 'react-hook-form'
 
 import Form from '#components/Form'
+import FormControlLabel from '#components/FormControlLabel'
 
 import { FormFields } from './form-helpers'
 
@@ -37,13 +37,14 @@ const ChartControls: FC<Props> = ({ control }) => {
         />
       </FormControl>
 
-      <FormControl>
+      <FormControl sx={{ rowGap: '8px' }}>
         <FormLabel>Displayed countries amount</FormLabel>
         <Controller
           control={control}
           name="displayedCountriesAmount"
           render={({ field }): ReactElement => (
-            <Select {...field}>
+            <Select {...field} size="small" sx={{ width: '200px' }}>
+              {/* Get options list calculated from contries.length, with gap of 5. */}
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={3}>3</MenuItem>
               <MenuItem value={5}>5</MenuItem>

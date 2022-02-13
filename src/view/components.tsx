@@ -14,7 +14,7 @@ export const StyledColorModeSwitch = styled(ColorModeSwitch)(({ theme }) => ({
     height: '80%',
     width: '80%',
   },
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     display: 'none',
   },
 }))
@@ -27,7 +27,7 @@ export const StyledTabs = styled(Tabs)({
 
 export const StyledTab = styled(Tab)(({ theme }) => ({
   minWidth: '168px',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     flexGrow: '1',
     minWidth: 'revert',
   },

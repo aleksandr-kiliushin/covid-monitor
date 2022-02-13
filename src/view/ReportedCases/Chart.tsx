@@ -24,7 +24,7 @@ const Chart: FC<Props> = ({ location, watch }) => {
 
   if (chartData === null) return <p>Data not found.</p>
 
-  return <AreaChart height={300} data={chartData} />
+  return <AreaChart data={chartData} height={300} />
 }
 
 export default Chart

@@ -10,7 +10,7 @@ const Main = styled('main')(({ theme }) => ({
   [theme.breakpoints.down('lg')]: {
     padding: '30px 60px',
   },
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     padding: '0',
   },
 }))

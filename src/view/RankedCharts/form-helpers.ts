@@ -4,6 +4,6 @@ export type FormFields = {
 }
 
 export const defaultValues: FormFields = {
-  displayedCountriesAmount: 5,
+  displayedCountriesAmount: 10,
   measure: 'confirmed-cases',
 }

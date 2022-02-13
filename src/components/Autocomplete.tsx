@@ -23,9 +23,8 @@ const Autocomplete: FC<Props> = ({ label, ...restProps }) => {
   )
 }
 
-const StyledAutocomplete = styled(Autocomplete)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'light' ? 'lightgray' : 'gray',
+const StyledAutocomplete = styled(Autocomplete)({
   borderRadius: '4px',
-}))
+})
 
 export default StyledAutocomplete

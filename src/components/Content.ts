@@ -11,7 +11,7 @@ const Content = styled('div')(({ theme }) => ({
   borderColor: theme.palette.mode === 'light' ? '#cfe0e2' : '#444',
   borderRadius: '8px',
   boxShadow: `0 0 10px ${theme.palette.mode === 'light' ? '#cfe0e2ff' : '#eeeeee44'}`,
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     borderRadius: '0',
   },
 }))

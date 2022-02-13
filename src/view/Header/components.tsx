@@ -11,7 +11,7 @@ export const StyledHeader = styled('header')(() => ({
 
 export const StyledAutocomplete = styled(Autocomplete)(({ theme }) => ({
   width: '336px',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     flexGrow: '1',
   },
 }))
@@ -19,7 +19,7 @@ export const StyledAutocomplete = styled(Autocomplete)(({ theme }) => ({
 export const StyledColorModeSwitch = styled(ColorModeSwitch)(({ theme }) => ({
   height: '40px',
   width: '40px',
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     display: 'none',
   },
 }))

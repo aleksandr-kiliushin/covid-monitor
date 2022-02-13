@@ -10,6 +10,15 @@ const ThemeProvider: FC = ({ children }) => {
   const theme = useMemo(
     () =>
       createTheme({
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 420,
+            md: 600,
+            lg: 900,
+            xl: 1400,
+          },
+        },
         palette: {
           mode: colorMode,
         },
