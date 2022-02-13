@@ -1,3 +1,5 @@
+import CircularProgress from '@mui/material/CircularProgress'
+import Typography from '@mui/material/Typography'
 import useTheme from '@mui/material/styles/useTheme'
 import { FC } from 'react'
 import { UseFormReturn } from 'react-hook-form'
@@ -9,7 +11,8 @@ import {
   LinearYAxisTickSeries,
 } from 'reaviz'
 
-import { rankedDataSelector } from '#store/covid/selectors'
+import { LoadingStatus } from '#constants/shared'
+import { loadingStatusSelector, rankedDataSelector } from '#store/covid/selectors'
 import { Location } from '#types'
 import { useAppSelector } from '#utils/hooks'
 import shortenNumber from '#utils/shortenNumber'
@@ -28,11 +31,31 @@ const Chart: FC<Props> = ({ location, watch }) => {
       measure: watch('measure'),
     }),
   )
+  const loadingStatus = useAppSelector(loadingStatusSelector)
 
   const theme = useTheme()
+
   const primaryColor = theme.palette.primary.main
 
-  if (chartData === null) return <p>Data not found.</p>
+  if (loadingStatus === LoadingStatus.LOADING) {
+    return <CircularProgress sx={{ margin: 'auto' }} />
+  }
+
+  if (loadingStatus === LoadingStatus.ERROR) {
+    return (
+      <Typography sx={{ margin: 'auto', color: theme.palette.error.main }}>
+        Could not load data.
+      </Typography>
+    )
+  }
+
+  if (chartData === null) {
+    return (
+      <Typography sx={{ margin: 'auto', color: theme.palette.error.main }}>
+        Loaded empty data.
+      </Typography>
+    )
+  }
 
   return (
     <BarChart
