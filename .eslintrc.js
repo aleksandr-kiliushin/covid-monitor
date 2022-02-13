@@ -25,7 +25,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': ['error'],
     '@typescript-eslint/no-empty-function': 'off',
     'arrow-parens': 2,
-    'no-console': 2,
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-duplicate-imports': 2,
     'no-tabs': 2,
   },
