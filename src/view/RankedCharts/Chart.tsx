@@ -1,3 +1,4 @@
+import useTheme from '@mui/material/styles/useTheme'
 import { FC } from 'react'
 import { UseFormReturn } from 'react-hook-form'
 import {
@@ -28,6 +29,9 @@ const Chart: FC<Props> = ({ location, watch }) => {
     }),
   )
 
+  const theme = useTheme()
+  const primaryColor = theme.palette.primary.main
+
   if (chartData === null) return <p>Data not found.</p>
 
   return (
@@ -36,7 +40,9 @@ const Chart: FC<Props> = ({ location, watch }) => {
       height={400}
       margins={[0, 0, 0, 20]}
       series={
-        <BarSeries colorScheme={({ id }): string => (id === location?.value ? 'red' : 'blue')} />
+        <BarSeries
+          colorScheme={({ id }): string => (id === location?.value ? 'red' : primaryColor)}
+        />
       }
       yAxis={
         <LinearYAxis

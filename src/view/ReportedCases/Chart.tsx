@@ -1,6 +1,13 @@
+import useTheme from '@mui/material/styles/useTheme'
 import { FC } from 'react'
 import { UseFormReturn } from 'react-hook-form'
-import { AreaChart, LinearYAxis, LinearYAxisTickLabel, LinearYAxisTickSeries } from 'reaviz'
+import {
+  AreaChart,
+  AreaSeries,
+  LinearYAxis,
+  LinearYAxisTickLabel,
+  LinearYAxisTickSeries,
+} from 'reaviz'
 
 import { locationDataSelector } from '#store/covid/selectors'
 import { Location } from '#types'
@@ -23,6 +30,9 @@ const Chart: FC<Props> = ({ location, watch }) => {
     }),
   )
 
+  const theme = useTheme()
+  const primaryColor = theme.palette.primary.main
+
   if (chartData === null) return <p>Data not found.</p>
 
   return (
@@ -30,6 +40,7 @@ const Chart: FC<Props> = ({ location, watch }) => {
       data={chartData}
       height={400}
       margins={[0, 0, 0, 20]}
+      series={<AreaSeries colorScheme={primaryColor} />}
       yAxis={
         <LinearYAxis
           tickSeries={
