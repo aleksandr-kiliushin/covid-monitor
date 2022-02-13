@@ -9,11 +9,6 @@ export const globalStyles = css`
     font-size: 10px;
   }
 
-  main {
-    height: 100vh;
-    width: 100vw;
-  }
-
   * {
     box-sizing: border-box;
   }

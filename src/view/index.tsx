@@ -1,10 +1,11 @@
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
-import styled from '@mui/material/styles/styled'
 import { FC, useEffect, useState } from 'react'
 
 import Autocomplete from '#components/Autocomplete'
 import ColorModeSwitch from '#components/ColorModeSwitch'
+import Content from '#components/Content'
+import Main from '#components/Main'
 import TabPanel, { TabId } from '#components/TabPanel'
 import { loadLocations } from '#store/covid/action-creators'
 import { locationsSelector } from '#store/covid/selectors'
@@ -13,17 +14,6 @@ import { useAppDispatch, useAppSelector } from '#utils/hooks'
 
 import RankedCharts from './RankedCharts'
 import ReportedCases from './ReportedCases'
-
-const Wrapper = styled('div')(
-  ({ theme }) => `
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 10px;
-  background-color: ${theme.palette.mode === 'light' ? 'lightgray' : 'gray'};
-  border-radius: 5px;
-`,
-)
 
 const App: FC = () => {
   const dispatch = useAppDispatch()
@@ -36,8 +26,8 @@ const App: FC = () => {
   }, [])
 
   return (
-    <main>
-      <Wrapper>
+    <Main>
+      <Content>
         <Autocomplete
           label="Location"
           onChange={(event, value): void => setSelectedLocation(value)}
@@ -53,10 +43,10 @@ const App: FC = () => {
         <TabPanel tabId={TabId.RANKED_CHARTS} selectedTabId={selectedTabId}>
           <RankedCharts location={selectedLocation} />
         </TabPanel>
-      </Wrapper>
+      </Content>
 
       <ColorModeSwitch />
-    </main>
+    </Main>
   )
 }
 
