@@ -49,7 +49,7 @@ export const loadLocations = createAsyncThunk<LoadLocationsReturn, void, { state
         try {
           await setDbItem({
             data: { countries, world },
-            expiresIn: 10,
+            expiresIn: 60 * 60 * 8, // Cached data expires in 8 hours.
             key: 'locations',
           })
         } catch (error) {
