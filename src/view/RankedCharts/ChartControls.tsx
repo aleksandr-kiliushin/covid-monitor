@@ -1,4 +1,6 @@
+import FormControl from '@mui/material/FormControl'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import FormLabel from '@mui/material/FormLabel'
 import MenuItem from '@mui/material/MenuItem'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
@@ -6,7 +8,7 @@ import Select from '@mui/material/Select'
 import { FC, ReactElement } from 'react'
 import { Controller, UseFormReturn } from 'react-hook-form'
 
-import ControlForm from '#components/ControlForm'
+import Form from '#components/Form'
 
 import { FormFields } from './form-helpers'
 
@@ -16,9 +18,9 @@ type Props = {
 
 const ChartControls: FC<Props> = ({ control }) => {
   return (
-    <ControlForm>
-      <div>
-        <label>Measure</label>
+    <Form>
+      <FormControl>
+        <FormLabel>Measure</FormLabel>
         <Controller
           control={control}
           name="measure"
@@ -33,11 +35,13 @@ const ChartControls: FC<Props> = ({ control }) => {
             </RadioGroup>
           )}
         />
-      </div>
+      </FormControl>
 
-      <div>
-        <label>Displayed countries amount</label>
+      <FormControl>
+        <FormLabel>Displayed countries amount</FormLabel>
         <Controller
+          control={control}
+          name="displayedCountriesAmount"
           render={({ field }): ReactElement => (
             <Select {...field}>
               <MenuItem value={1}>1</MenuItem>
@@ -49,11 +53,9 @@ const ChartControls: FC<Props> = ({ control }) => {
               <MenuItem value={40}>40</MenuItem>
             </Select>
           )}
-          control={control}
-          name="displayedCountriesAmount"
         />
-      </div>
-    </ControlForm>
+      </FormControl>
+    </Form>
   )
 }
 

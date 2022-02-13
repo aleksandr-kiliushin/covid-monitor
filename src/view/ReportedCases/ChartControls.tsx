@@ -1,10 +1,12 @@
+import FormControl from '@mui/material/FormControl'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import FormLabel from '@mui/material/FormLabel'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import { FC, ReactElement } from 'react'
 import { Controller, UseFormReturn } from 'react-hook-form'
 
-import ControlForm from '#components/ControlForm'
+import Form from '#components/Form'
 
 import { FormFields } from './form-helpers'
 
@@ -14,9 +16,9 @@ type Props = {
 
 const ChartControls: FC<Props> = ({ control }) => {
   return (
-    <ControlForm>
-      <div>
-        <label>Measure</label>
+    <Form>
+      <FormControl>
+        <FormLabel>Measure</FormLabel>
         <Controller
           control={control}
           name="measure"
@@ -31,10 +33,10 @@ const ChartControls: FC<Props> = ({ control }) => {
             </RadioGroup>
           )}
         />
-      </div>
+      </FormControl>
 
-      <div>
-        <label>Count mode</label>
+      <FormControl>
+        <FormLabel>Count mode</FormLabel>
         <Controller
           render={({ field }): ReactElement => (
             <RadioGroup {...field}>
@@ -45,8 +47,8 @@ const ChartControls: FC<Props> = ({ control }) => {
           control={control}
           name="countMode"
         />
-      </div>
-    </ControlForm>
+      </FormControl>
+    </Form>
   )
 }
 

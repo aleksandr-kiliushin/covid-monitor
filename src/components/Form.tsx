@@ -1,6 +1,6 @@
 import styled from '@mui/material/styles/styled'
 
-const ControlForm = styled('form')(({ theme }) => ({
+const Form = styled('form')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'auto auto',
   gap: '1rem',
@@ -10,4 +10,4 @@ const ControlForm = styled('form')(({ theme }) => ({
   },
 }))
 
-export default ControlForm
+export default Form
