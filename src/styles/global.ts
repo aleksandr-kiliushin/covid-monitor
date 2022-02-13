@@ -12,7 +12,6 @@ export const globalStyles = css`
   main {
     height: 100vh;
     width: 100vw;
-    padding: 40px 60px;
   }
 
   * {
