@@ -1,9 +1,10 @@
-import styled from '@emotion/styled'
+import styled from '@mui/material/styles/styled'
 
-const AnalyticsBoard = styled.div`
-  display: grid;
-  grid-template-rows: auto 80px;
-  height: 100%;
-`
+const AnalyticsBoard = styled('div')({
+  flexGrow: '1',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+})
 
 export default AnalyticsBoard

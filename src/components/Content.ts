@@ -1,10 +1,10 @@
 import styled from '@mui/material/styles/styled'
 
 const Content = styled('div')(({ theme }) => ({
+  flexGrow: '1',
   display: 'flex',
   flexDirection: 'column',
   rowGap: '12px',
-  height: '100%',
   padding: '16px',
   borderStyle: 'solid',
   borderWidth: '1px',

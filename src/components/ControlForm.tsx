@@ -1,10 +1,13 @@
-import styled from '@emotion/styled'
+import styled from '@mui/material/styles/styled'
 
-const ControlForm = styled.form`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1rem;
-  border: 3px solid black;
-`
+const ControlForm = styled('form')(({ theme }) => ({
+  display: 'grid',
+  gridTemplateColumns: 'auto auto',
+  gap: '1rem',
+  border: '1px solid black',
+  [theme.breakpoints.down('md')]: {
+    gridTemplateColumns: 'auto',
+  },
+}))
 
 export default ControlForm
