@@ -41,6 +41,7 @@ module.exports = {
     alias: {
       '#components': path.resolve(process.cwd(), 'src/components'),
       '#constants': path.resolve(process.cwd(), 'src/constants'),
+      '#providers': path.resolve(process.cwd(), 'src/providers'),
       '#store': path.resolve(process.cwd(), 'src/store'),
       '#styles': path.resolve(process.cwd(), 'src/styles'),
       '#utils': path.resolve(process.cwd(), 'src/utils'),
