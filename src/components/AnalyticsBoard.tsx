@@ -5,6 +5,7 @@ const AnalyticsBoard = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  rowGap: '3.5rem',
 })
 
 export default AnalyticsBoard

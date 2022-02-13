@@ -1,3 +1,4 @@
+import cyan from '@mui/material/colors/cyan'
 import MuiThemeProvider from '@mui/material/styles/ThemeProvider'
 import createTheme from '@mui/material/styles/createTheme'
 import { FC, useMemo } from 'react'
@@ -21,6 +22,9 @@ const ThemeProvider: FC = ({ children }) => {
         },
         palette: {
           mode: colorMode,
+          primary: {
+            main: cyan[600],
+          },
         },
       }),
     [colorMode],
