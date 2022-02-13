@@ -1,3 +1,5 @@
+import Tab from '@mui/material/Tab'
+import Tabs from '@mui/material/Tabs'
 import styled from '@mui/material/styles/styled'
 
 import ColorModeSwitch from '#components/ColorModeSwitch'
@@ -14,5 +16,19 @@ export const StyledColorModeSwitch = styled(ColorModeSwitch)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     display: 'none',
+  },
+}))
+
+export const StyledTabs = styled(Tabs)({
+  '& .MuiTabs-flexContainer': {
+    justifyContent: 'center',
+  },
+})
+
+export const StyledTab = styled(Tab)(({ theme }) => ({
+  minWidth: '168px',
+  [theme.breakpoints.down('sm')]: {
+    flexGrow: '1',
+    minWidth: 'revert',
   },
 }))

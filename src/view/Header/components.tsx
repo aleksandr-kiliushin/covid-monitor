@@ -10,7 +10,7 @@ export const StyledHeader = styled('header')(() => ({
 }))
 
 export const StyledAutocomplete = styled(Autocomplete)(({ theme }) => ({
-  width: '300px',
+  width: '336px',
   [theme.breakpoints.down('sm')]: {
     flexGrow: '1',
   },

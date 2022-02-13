@@ -1,5 +1,3 @@
-import Tab from '@mui/material/Tab'
-import Tabs from '@mui/material/Tabs'
 import { FC, useEffect, useState } from 'react'
 
 import Content from '#components/Content'
@@ -12,7 +10,7 @@ import { useAppDispatch } from '#utils/hooks'
 import Header from './Header'
 import RankedCharts from './RankedCharts'
 import ReportedCases from './ReportedCases'
-import { StyledColorModeSwitch } from './components'
+import { StyledColorModeSwitch, StyledTab, StyledTabs } from './components'
 
 const App: FC = () => {
   const dispatch = useAppDispatch()
@@ -27,10 +25,13 @@ const App: FC = () => {
     <Main>
       <Content>
         <Header setSelectedLocation={setSelectedLocation} />
-        <Tabs value={selectedTabId} onChange={(event, value): void => setSelectedTabId(value)}>
-          <Tab label="Reported cases" />
-          <Tab label="Ranked charts" />
-        </Tabs>
+        <StyledTabs
+          value={selectedTabId}
+          onChange={(event, value): void => setSelectedTabId(value)}
+        >
+          <StyledTab label="Reported cases" />
+          <StyledTab label="Ranked charts" />
+        </StyledTabs>
         <TabPanel tabId={TabId.REPORTED_CASES} selectedTabId={selectedTabId}>
           <ReportedCases location={selectedLocation} />
         </TabPanel>
