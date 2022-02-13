@@ -23,18 +23,10 @@ module.exports = {
   root: true,
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['error'],
+    '@typescript-eslint/no-empty-function': 'off',
     'arrow-parens': 2,
     'no-console': 2,
     'no-duplicate-imports': 2,
     'no-tabs': 2,
-    'sort-keys': [
-      'warn',
-      'asc',
-      {
-        caseSensitive: true,
-        minKeys: 2,
-        natural: false,
-      },
-    ],
   },
 }
