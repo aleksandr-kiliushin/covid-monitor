@@ -1,6 +1,6 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 
-import { locationsSelector } from '#store/covid/selectors'
+import { countriesSelector } from '#store/covid/selectors'
 import { Location } from '#types'
 import { useAppSelector } from '#utils/hooks'
 
@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Header: FC<Props> = ({ setSelectedLocation }) => {
-  const locations = useAppSelector(locationsSelector)
+  const locations = useAppSelector(countriesSelector)
 
   return (
     <StyledHeader>

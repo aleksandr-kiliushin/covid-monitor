@@ -4,11 +4,13 @@ import MenuItem from '@mui/material/MenuItem'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import Select from '@mui/material/Select'
-import { FC, ReactElement } from 'react'
+import { FC, ReactElement, useMemo } from 'react'
 import { Controller, UseFormReturn } from 'react-hook-form'
 
 import Form from '#components/Form'
 import FormControlLabel from '#components/FormControlLabel'
+import { countriesSelector } from '#store/covid/selectors'
+import { useAppSelector } from '#utils/hooks'
 
 import { FormFields } from './form-helpers'
 
@@ -17,6 +19,19 @@ type Props = {
 }
 
 const ChartControls: FC<Props> = ({ control }) => {
+  const countries = useAppSelector(countriesSelector)
+
+  const displayedCountriesAmountOptions = useMemo((): number[] => {
+    if (countries.length === 0) return []
+
+    // Get 1-based country indices.
+    const [, ...countryIndices] = [...Array.from(Array(countries.length).keys()), countries.length]
+
+    return countryIndices.filter(
+      (value) => value % 5 === 0 || [1, 2, 3, 4, 6, 7, 8, 9, countries.length].includes(value),
+    )
+  }, [countries])
+
   return (
     <Form>
       <FormControl>
@@ -44,14 +59,11 @@ const ChartControls: FC<Props> = ({ control }) => {
           name="displayedCountriesAmount"
           render={({ field }): ReactElement => (
             <Select {...field} size="small" sx={{ width: '200px' }}>
-              {/* Get options list calculated from contries.length, with gap of 5. */}
-              <MenuItem value={1}>1</MenuItem>
-              <MenuItem value={3}>3</MenuItem>
-              <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={10}>10</MenuItem>
-              <MenuItem value={20}>20</MenuItem>
-              <MenuItem value={30}>30</MenuItem>
-              <MenuItem value={40}>40</MenuItem>
+              {displayedCountriesAmountOptions.map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
             </Select>
           )}
         />
