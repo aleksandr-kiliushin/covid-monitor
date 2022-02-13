@@ -26,7 +26,7 @@ const Chart: FC<Props> = ({ location, watch }) => {
   return (
     <BarChart
       data={chartData}
-      height={300}
+      height={400}
       series={
         <BarSeries colorScheme={({ id }): string => (id === location?.value ? 'red' : 'blue')} />
       }

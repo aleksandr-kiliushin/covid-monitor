@@ -31,4 +31,7 @@ export const StyledTab = styled(Tab)(({ theme }) => ({
     flexGrow: '1',
     minWidth: 'revert',
   },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '12px',
+  },
 }))
