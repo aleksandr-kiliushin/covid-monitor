@@ -8,9 +8,9 @@ const Content = styled('div')(({ theme }) => ({
   padding: '16px',
   borderStyle: 'solid',
   borderWidth: '1px',
-  borderColor: theme.palette.mode === 'light' ? '#cfe0e2' : '#444',
+  borderColor: theme.palette.mode === 'light' ? 'lightgray' : '#444',
   borderRadius: '8px',
-  boxShadow: '0 0 10px #eeeeee44',
+  boxShadow: `0 0 10px ${theme.palette.mode === 'light' ? 'lightgray' : '#00000077'}`,
   [theme.breakpoints.down('md')]: {
     borderRadius: '0',
   },
